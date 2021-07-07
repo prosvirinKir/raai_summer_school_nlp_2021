@@ -1,0 +1,1985 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "1. ПростаяТекстоваяКлассификация_Сириус.ipynb",
+      "provenance": [],
+      "collapsed_sections": []
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    },
+    "language_info": {
+      "name": "python"
+    },
+    "widgets": {
+      "application/vnd.jupyter.widget-state+json": {
+        "333235c84d9e4512ae3ed47526223d35": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "HBoxModel",
+          "state": {
+            "_view_name": "HBoxView",
+            "_dom_classes": [],
+            "_model_name": "HBoxModel",
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "box_style": "",
+            "layout": "IPY_MODEL_e75fbca82855435589551e29fe10caf7",
+            "_model_module": "@jupyter-widgets/controls",
+            "children": [
+              "IPY_MODEL_1c986d0159b2433b9436ab5a998533ed",
+              "IPY_MODEL_1d684fa3dcf84f4bac882f00db6bd704"
+            ]
+          }
+        },
+        "e75fbca82855435589551e29fe10caf7": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "1c986d0159b2433b9436ab5a998533ed": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "FloatProgressModel",
+          "state": {
+            "_view_name": "ProgressView",
+            "style": "IPY_MODEL_2facf199cefc48b5b9dd31655db45032",
+            "_dom_classes": [],
+            "description": "100%",
+            "_model_name": "FloatProgressModel",
+            "bar_style": "success",
+            "max": 25000,
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "value": 25000,
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "orientation": "horizontal",
+            "min": 0,
+            "description_tooltip": null,
+            "_model_module": "@jupyter-widgets/controls",
+            "layout": "IPY_MODEL_1f4bae7c61ba46939ea8d87d7867a094"
+          }
+        },
+        "1d684fa3dcf84f4bac882f00db6bd704": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "HTMLModel",
+          "state": {
+            "_view_name": "HTMLView",
+            "style": "IPY_MODEL_67ee3712f9e944928188ed0587f0502e",
+            "_dom_classes": [],
+            "description": "",
+            "_model_name": "HTMLModel",
+            "placeholder": "​",
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "value": " 25000/25000 [16:10&lt;00:00, 25.77it/s]",
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "description_tooltip": null,
+            "_model_module": "@jupyter-widgets/controls",
+            "layout": "IPY_MODEL_19034a47b45c4015a5a459639b0bd9dc"
+          }
+        },
+        "2facf199cefc48b5b9dd31655db45032": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "ProgressStyleModel",
+          "state": {
+            "_view_name": "StyleView",
+            "_model_name": "ProgressStyleModel",
+            "description_width": "initial",
+            "_view_module": "@jupyter-widgets/base",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.2.0",
+            "bar_color": null,
+            "_model_module": "@jupyter-widgets/controls"
+          }
+        },
+        "1f4bae7c61ba46939ea8d87d7867a094": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "67ee3712f9e944928188ed0587f0502e": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "DescriptionStyleModel",
+          "state": {
+            "_view_name": "StyleView",
+            "_model_name": "DescriptionStyleModel",
+            "description_width": "",
+            "_view_module": "@jupyter-widgets/base",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.2.0",
+            "_model_module": "@jupyter-widgets/controls"
+          }
+        },
+        "19034a47b45c4015a5a459639b0bd9dc": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "c79a7f272e9245699a963eb233ab22d3": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "HBoxModel",
+          "state": {
+            "_view_name": "HBoxView",
+            "_dom_classes": [],
+            "_model_name": "HBoxModel",
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "box_style": "",
+            "layout": "IPY_MODEL_a5edc6370ef1475680e7cd9a165c3e45",
+            "_model_module": "@jupyter-widgets/controls",
+            "children": [
+              "IPY_MODEL_ad9e46899f124028bcc2f5c359c9c476",
+              "IPY_MODEL_bbbdc888cf88486ca20cf65cca72cf64"
+            ]
+          }
+        },
+        "a5edc6370ef1475680e7cd9a165c3e45": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "ad9e46899f124028bcc2f5c359c9c476": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "FloatProgressModel",
+          "state": {
+            "_view_name": "ProgressView",
+            "style": "IPY_MODEL_f0bfd7c8d6814c519594181e8457915c",
+            "_dom_classes": [],
+            "description": "100%",
+            "_model_name": "FloatProgressModel",
+            "bar_style": "success",
+            "max": 25000,
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "value": 25000,
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "orientation": "horizontal",
+            "min": 0,
+            "description_tooltip": null,
+            "_model_module": "@jupyter-widgets/controls",
+            "layout": "IPY_MODEL_117e531fee0b4b0faedc40075cb2bb9a"
+          }
+        },
+        "bbbdc888cf88486ca20cf65cca72cf64": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "HTMLModel",
+          "state": {
+            "_view_name": "HTMLView",
+            "style": "IPY_MODEL_c9d0540523b74026bfac4772bfe4de62",
+            "_dom_classes": [],
+            "description": "",
+            "_model_name": "HTMLModel",
+            "placeholder": "​",
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "value": " 25000/25000 [15:55&lt;00:00, 26.18it/s]",
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "description_tooltip": null,
+            "_model_module": "@jupyter-widgets/controls",
+            "layout": "IPY_MODEL_186b1f198f264605a15542a20e84c3d9"
+          }
+        },
+        "f0bfd7c8d6814c519594181e8457915c": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "ProgressStyleModel",
+          "state": {
+            "_view_name": "StyleView",
+            "_model_name": "ProgressStyleModel",
+            "description_width": "initial",
+            "_view_module": "@jupyter-widgets/base",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.2.0",
+            "bar_color": null,
+            "_model_module": "@jupyter-widgets/controls"
+          }
+        },
+        "117e531fee0b4b0faedc40075cb2bb9a": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "c9d0540523b74026bfac4772bfe4de62": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "DescriptionStyleModel",
+          "state": {
+            "_view_name": "StyleView",
+            "_model_name": "DescriptionStyleModel",
+            "description_width": "",
+            "_view_module": "@jupyter-widgets/base",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.2.0",
+            "_model_module": "@jupyter-widgets/controls"
+          }
+        },
+        "186b1f198f264605a15542a20e84c3d9": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "3977bcdf7ce445a99ac60a5a62feb1b1": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "HBoxModel",
+          "state": {
+            "_view_name": "HBoxView",
+            "_dom_classes": [],
+            "_model_name": "HBoxModel",
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "box_style": "",
+            "layout": "IPY_MODEL_e2a4f83cf5034585921fd5873ab9cde7",
+            "_model_module": "@jupyter-widgets/controls",
+            "children": [
+              "IPY_MODEL_3111d550f45448418272ad92b88ec734",
+              "IPY_MODEL_f210e614eeab4f29b745b534f5289b92"
+            ]
+          }
+        },
+        "e2a4f83cf5034585921fd5873ab9cde7": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "3111d550f45448418272ad92b88ec734": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "FloatProgressModel",
+          "state": {
+            "_view_name": "ProgressView",
+            "style": "IPY_MODEL_01635e18985f4ea383186649a1a5b9c6",
+            "_dom_classes": [],
+            "description": "100%",
+            "_model_name": "FloatProgressModel",
+            "bar_style": "success",
+            "max": 25000,
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "value": 25000,
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "orientation": "horizontal",
+            "min": 0,
+            "description_tooltip": null,
+            "_model_module": "@jupyter-widgets/controls",
+            "layout": "IPY_MODEL_4a6b07cf0b3c4a5388f166fe3bf7eaba"
+          }
+        },
+        "f210e614eeab4f29b745b534f5289b92": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "HTMLModel",
+          "state": {
+            "_view_name": "HTMLView",
+            "style": "IPY_MODEL_97c2f8c5c6bd45149e2780a266301015",
+            "_dom_classes": [],
+            "description": "",
+            "_model_name": "HTMLModel",
+            "placeholder": "​",
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "value": " 25000/25000 [04:28&lt;00:00, 93.05it/s]",
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "description_tooltip": null,
+            "_model_module": "@jupyter-widgets/controls",
+            "layout": "IPY_MODEL_0066433424af4911baae1767bab1cb22"
+          }
+        },
+        "01635e18985f4ea383186649a1a5b9c6": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "ProgressStyleModel",
+          "state": {
+            "_view_name": "StyleView",
+            "_model_name": "ProgressStyleModel",
+            "description_width": "initial",
+            "_view_module": "@jupyter-widgets/base",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.2.0",
+            "bar_color": null,
+            "_model_module": "@jupyter-widgets/controls"
+          }
+        },
+        "4a6b07cf0b3c4a5388f166fe3bf7eaba": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "97c2f8c5c6bd45149e2780a266301015": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "DescriptionStyleModel",
+          "state": {
+            "_view_name": "StyleView",
+            "_model_name": "DescriptionStyleModel",
+            "description_width": "",
+            "_view_module": "@jupyter-widgets/base",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.2.0",
+            "_model_module": "@jupyter-widgets/controls"
+          }
+        },
+        "0066433424af4911baae1767bab1cb22": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "3446204eafa64637aee79e2c209ae53e": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "HBoxModel",
+          "state": {
+            "_view_name": "HBoxView",
+            "_dom_classes": [],
+            "_model_name": "HBoxModel",
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "box_style": "",
+            "layout": "IPY_MODEL_28d2916a42214c82a69e0b2f3c754105",
+            "_model_module": "@jupyter-widgets/controls",
+            "children": [
+              "IPY_MODEL_1b2127613b9c4659b53e53cd7c7211ea",
+              "IPY_MODEL_136ef243071541c1b47cfb88721e746f"
+            ]
+          }
+        },
+        "28d2916a42214c82a69e0b2f3c754105": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "1b2127613b9c4659b53e53cd7c7211ea": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "FloatProgressModel",
+          "state": {
+            "_view_name": "ProgressView",
+            "style": "IPY_MODEL_26eae854e714405993771f3f04a8f245",
+            "_dom_classes": [],
+            "description": "100%",
+            "_model_name": "FloatProgressModel",
+            "bar_style": "success",
+            "max": 25000,
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "value": 25000,
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "orientation": "horizontal",
+            "min": 0,
+            "description_tooltip": null,
+            "_model_module": "@jupyter-widgets/controls",
+            "layout": "IPY_MODEL_971c68fd915f4ac6bf7c13e698ce0fb1"
+          }
+        },
+        "136ef243071541c1b47cfb88721e746f": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "HTMLModel",
+          "state": {
+            "_view_name": "HTMLView",
+            "style": "IPY_MODEL_86e3de33165f47e48de576c6ef430a87",
+            "_dom_classes": [],
+            "description": "",
+            "_model_name": "HTMLModel",
+            "placeholder": "​",
+            "_view_module": "@jupyter-widgets/controls",
+            "_model_module_version": "1.5.0",
+            "value": " 25000/25000 [04:14&lt;00:00, 98.33it/s]",
+            "_view_count": null,
+            "_view_module_version": "1.5.0",
+            "description_tooltip": null,
+            "_model_module": "@jupyter-widgets/controls",
+            "layout": "IPY_MODEL_c7881c744fa64be48cb54fd6119d0803"
+          }
+        },
+        "26eae854e714405993771f3f04a8f245": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "ProgressStyleModel",
+          "state": {
+            "_view_name": "StyleView",
+            "_model_name": "ProgressStyleModel",
+            "description_width": "initial",
+            "_view_module": "@jupyter-widgets/base",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.2.0",
+            "bar_color": null,
+            "_model_module": "@jupyter-widgets/controls"
+          }
+        },
+        "971c68fd915f4ac6bf7c13e698ce0fb1": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        },
+        "86e3de33165f47e48de576c6ef430a87": {
+          "model_module": "@jupyter-widgets/controls",
+          "model_name": "DescriptionStyleModel",
+          "state": {
+            "_view_name": "StyleView",
+            "_model_name": "DescriptionStyleModel",
+            "description_width": "",
+            "_view_module": "@jupyter-widgets/base",
+            "_model_module_version": "1.5.0",
+            "_view_count": null,
+            "_view_module_version": "1.2.0",
+            "_model_module": "@jupyter-widgets/controls"
+          }
+        },
+        "c7881c744fa64be48cb54fd6119d0803": {
+          "model_module": "@jupyter-widgets/base",
+          "model_name": "LayoutModel",
+          "state": {
+            "_view_name": "LayoutView",
+            "grid_template_rows": null,
+            "right": null,
+            "justify_content": null,
+            "_view_module": "@jupyter-widgets/base",
+            "overflow": null,
+            "_model_module_version": "1.2.0",
+            "_view_count": null,
+            "flex_flow": null,
+            "width": null,
+            "min_width": null,
+            "border": null,
+            "align_items": null,
+            "bottom": null,
+            "_model_module": "@jupyter-widgets/base",
+            "top": null,
+            "grid_column": null,
+            "overflow_y": null,
+            "overflow_x": null,
+            "grid_auto_flow": null,
+            "grid_area": null,
+            "grid_template_columns": null,
+            "flex": null,
+            "_model_name": "LayoutModel",
+            "justify_items": null,
+            "grid_row": null,
+            "max_height": null,
+            "align_content": null,
+            "visibility": null,
+            "align_self": null,
+            "height": null,
+            "min_height": null,
+            "padding": null,
+            "grid_auto_rows": null,
+            "grid_gap": null,
+            "max_width": null,
+            "order": null,
+            "_view_module_version": "1.2.0",
+            "grid_template_areas": null,
+            "object_position": null,
+            "object_fit": null,
+            "grid_auto_columns": null,
+            "margin": null,
+            "display": null,
+            "left": null
+          }
+        }
+      }
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "sbVq8XhJIrC9"
+      },
+      "source": [
+        "### Анализ сентимента\n",
+        "Датасет содержит по 25К примеров в тренировочной выборке и 25К в тестовой. Разметка на 2 класса, данные сбалансированы (по 12500 примеров на класс).\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Ju1VqKELsnBE",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "4fdce123-4a3e-4a9d-e93b-8244fe5072a3"
+      },
+      "source": [
+        "!wget http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz\n",
+        "!tar -zxf aclImdb_v1.tar.gz"
+      ],
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "--2021-07-07 07:41:26--  http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz\n",
+            "Resolving ai.stanford.edu (ai.stanford.edu)... 171.64.68.10\n",
+            "Connecting to ai.stanford.edu (ai.stanford.edu)|171.64.68.10|:80... connected.\n",
+            "HTTP request sent, awaiting response... 200 OK\n",
+            "Length: 84125825 (80M) [application/x-gzip]\n",
+            "Saving to: ‘aclImdb_v1.tar.gz’\n",
+            "\n",
+            "aclImdb_v1.tar.gz   100%[===================>]  80.23M  29.0MB/s    in 2.8s    \n",
+            "\n",
+            "2021-07-07 07:41:29 (29.0 MB/s) - ‘aclImdb_v1.tar.gz’ saved [84125825/84125825]\n",
+            "\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Wl3vnj5tw6hP"
+      },
+      "source": [
+        "Тексты содержатся в папках pos и neg, посмотрим на один из текстов, после чего соберём их в списки `texts` и `labels`, содержащие сами тексты и их метки, соответственно. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZtdZfADxttSm",
+        "outputId": "6cafa3db-3ad9-4844-d7b4-98f74f6d6f67"
+      },
+      "source": [
+        "!cat aclImdb/train/pos/10000_8.txt"
+      ],
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Homelessness (or Houselessness as George Carlin stated) has been an issue for years but never a plan to help those on the street that were once considered human who did everything from going to school, work, or vote for the matter. Most people think of the homeless as just a lost cause while worrying about things such as racism, the war on Iraq, pressuring kids to succeed, technology, the elections, inflation, or worrying if they'll be next to end up on the streets.<br /><br />But what if you were given a bet to live on the streets for a month without the luxuries you once had from a home, the entertainment sets, a bathroom, pictures on the wall, a computer, and everything you once treasure to see what it's like to be homeless? That is Goddard Bolt's lesson.<br /><br />Mel Brooks (who directs) who stars as Bolt plays a rich man who has everything in the world until deciding to make a bet with a sissy rival (Jeffery Tambor) to see if he can live in the streets for thirty days without the luxuries; if Bolt succeeds, he can do what he wants with a future project of making more buildings. The bet's on where Bolt is thrown on the street with a bracelet on his leg to monitor his every move where he can't step off the sidewalk. He's given the nickname Pepto by a vagrant after it's written on his forehead where Bolt meets other characters including a woman by the name of Molly (Lesley Ann Warren) an ex-dancer who got divorce before losing her home, and her pals Sailor (Howard Morris) and Fumes (Teddy Wilson) who are already used to the streets. They're survivors. Bolt isn't. He's not used to reaching mutual agreements like he once did when being rich where it's fight or flight, kill or be killed.<br /><br />While the love connection between Molly and Bolt wasn't necessary to plot, I found \"Life Stinks\" to be one of Mel Brooks' observant films where prior to being a comedy, it shows a tender side compared to his slapstick work such as Blazing Saddles, Young Frankenstein, or Spaceballs for the matter, to show what it's like having something valuable before losing it the next day or on the other hand making a stupid bet like all rich people do when they don't know what to do with their money. Maybe they should give it to the homeless instead of using it like Monopoly money.<br /><br />Or maybe this film will inspire you to help others."
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "egcjD9l2y5ED"
+      },
+      "source": [
+        "import os\n",
+        "\n",
+        "POSITIVE_DIR, NEGATIVE_DIR = \"aclImdb/train/pos\", \"aclImdb/train/neg\"\n",
+        "train_texts, train_labels = [], []\n",
+        "for folder, label in zip([POSITIVE_DIR, NEGATIVE_DIR], [\"pos\", \"neg\"]):\n",
+        "    for infile in os.listdir(folder):\n",
+        "        with open(os.path.join(folder, infile)) as fin:\n",
+        "            text = fin.read().strip()\n",
+        "            train_texts.append(text)\n",
+        "            train_labels.append(label)\n",
+        "POSITIVE_DIR, NEGATIVE_DIR = \"aclImdb/test/pos\", \"aclImdb/test/neg\"\n",
+        "test_texts, test_labels = [], []\n",
+        "for folder, label in zip([POSITIVE_DIR, NEGATIVE_DIR], [\"pos\", \"neg\"]):\n",
+        "    for infile in os.listdir(folder):\n",
+        "        with open(os.path.join(folder, infile)) as fin:\n",
+        "            text = fin.read().strip()\n",
+        "            test_texts.append(text)\n",
+        "            test_labels.append(label)"
+      ],
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "r63zOO7B1R95"
+      },
+      "source": [
+        "Напишем функцию предобработки текста, преобразующую текст в список слов. Добавим опционально приведение слов к нижнему регистру, удаление слов, содержащих неалфавитные символы, а также удаление стопслов, которые, предположительно не повлияют на классификацию."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "e-9TnpUs2M3J",
+        "outputId": "c8f8034d-2f70-4ef4-8d17-9b5422dcff5f"
+      },
+      "source": [
+        "import nltk\n",
+        "\n",
+        "nltk.download('stopwords')\n",
+        "from nltk.tokenize import wordpunct_tokenize\n",
+        "from nltk.corpus import stopwords as nltk_stopwords\n",
+        "\n",
+        "nltk_stopwords = nltk_stopwords.words(\"english\")\n",
+        "\n",
+        "def is_word(word):\n",
+        "    word = word.lower()\n",
+        "    return all(x.isalpha() or x.isdigit() or x == \"-\" for x in word) and any(x.isalpha() or x.isdigit() for x in word)\n",
+        "\n",
+        "def process_text(text, to_lower=True, only_alpha=True, remove_stopwords=False):\n",
+        "    # Здесь можно посмотреть пример токенизации https://www.kite.com/python/docs/nltk.WordPunctTokenizer\n",
+        "    words = wordpunct_tokenize(text) if isinstance(text, str) else text\n",
+        "    if to_lower:\n",
+        "        words = [word.lower() for word in words]\n",
+        "    if only_alpha:\n",
+        "        words = [word for word in words if is_word(word)]\n",
+        "    if remove_stopwords:\n",
+        "        words = [word for word in words if word not in nltk_stopwords]\n",
+        "    return words"
+      ],
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "[nltk_data] Downloading package stopwords to /root/nltk_data...\n",
+            "[nltk_data]   Unzipping corpora/stopwords.zip.\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "M3kxbx0EUKVV",
+        "outputId": "c3a2508c-05b4-47f1-efbf-aad70c593265"
+      },
+      "source": [
+        "# Высокочастотные слова, которые встречаются повсеместно и могут вносить шум (артикли, предлоги, ...)\n",
+        "nltk_stopwords[:10]"
+      ],
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', \"you're\"]"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 116,
+          "referenced_widgets": [
+            "333235c84d9e4512ae3ed47526223d35",
+            "e75fbca82855435589551e29fe10caf7",
+            "1c986d0159b2433b9436ab5a998533ed",
+            "1d684fa3dcf84f4bac882f00db6bd704",
+            "2facf199cefc48b5b9dd31655db45032",
+            "1f4bae7c61ba46939ea8d87d7867a094",
+            "67ee3712f9e944928188ed0587f0502e",
+            "19034a47b45c4015a5a459639b0bd9dc",
+            "c79a7f272e9245699a963eb233ab22d3",
+            "a5edc6370ef1475680e7cd9a165c3e45",
+            "ad9e46899f124028bcc2f5c359c9c476",
+            "bbbdc888cf88486ca20cf65cca72cf64",
+            "f0bfd7c8d6814c519594181e8457915c",
+            "117e531fee0b4b0faedc40075cb2bb9a",
+            "c9d0540523b74026bfac4772bfe4de62",
+            "186b1f198f264605a15542a20e84c3d9"
+          ]
+        },
+        "id": "wcPU5XHm1RgT",
+        "outputId": "a24ab98c-d52b-4422-8031-1cb8a04a0a04"
+      },
+      "source": [
+        "from tqdm.auto import tqdm\n",
+        "\n",
+        "processed_train_texts = [process_text(text) for text in tqdm(train_texts)]\n",
+        "processed_test_texts = [process_text(text) for text in tqdm(test_texts)]"
+      ],
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "application/vnd.jupyter.widget-view+json": {
+              "model_id": "333235c84d9e4512ae3ed47526223d35",
+              "version_minor": 0,
+              "version_major": 2
+            },
+            "text/plain": [
+              "HBox(children=(FloatProgress(value=0.0, max=25000.0), HTML(value='')))"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          }
+        },
+        {
+          "output_type": "stream",
+          "text": [
+            "\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+            "application/vnd.jupyter.widget-view+json": {
+              "model_id": "c79a7f272e9245699a963eb233ab22d3",
+              "version_minor": 0,
+              "version_major": 2
+            },
+            "text/plain": [
+              "HBox(children=(FloatProgress(value=0.0, max=25000.0), HTML(value='')))"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          }
+        },
+        {
+          "output_type": "stream",
+          "text": [
+            "\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "S4ns5Kt8IwWD"
+      },
+      "source": [
+        "Мы хотим представить текст вектором счётчиков входящих в него слов. При этом будем считать только слова, встречающиеся не менее `min_count` раз в обучающей выборке. При первом проходе обучающей выборки нужно как раз собрать счётчики и построить соответствие между словами и индексами.\n",
+        "\n",
+        "Поскольку тексты довольно короткие, большинство слов в каждом из текстов будут иметь нулевой счётчик. Чтобы не хранить эти нули, мы будем представлять выборку в виде разреженной матрицы (https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html)."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "hEOpw1rmIvso"
+      },
+      "source": [
+        "from collections import defaultdict, Counter\n",
+        "from scipy.sparse import csr_matrix\n",
+        "\n",
+        "class TextProcessor:\n",
+        "\n",
+        "    def __init__(self, min_count=3):\n",
+        "        self.min_count = min_count\n",
+        "\n",
+        "    def fit(self, texts):\n",
+        "        # Создаем отображение слово -> индекс слова\n",
+        "        counts = defaultdict(int)\n",
+        "        for text in texts:\n",
+        "            for word in set(text): # учитываем только одно слово на документ, без повторов\n",
+        "                counts[word] += 1\n",
+        "        # Отбираем только те слова частоты которых больше или равны минимальной частоты\n",
+        "        self.words_ = [word for word, count in counts.items() if count >= self.min_count]\n",
+        "        self.word_codes_ = {word: i for i, word in enumerate(self.words_)}\n",
+        "        return self\n",
+        "\n",
+        "    def transform(self, texts):\n",
+        "        # Преобразуем текстовые данные в разряженные матрицы\n",
+        "        # cols - номера столбцов, содержащих \n",
+        "        # indptrs - позиции начала строк матрицы в списке ненулевых элементов\n",
+        "        indptrs, data, cols = [0], [], []\n",
+        "        for i, text in enumerate(texts):\n",
+        "            word_counts = Counter(text)\n",
+        "            for word, count in word_counts.items():\n",
+        "                code = self.word_codes_.get(word)\n",
+        "                if code is not None:\n",
+        "                    data.append(count)\n",
+        "                    cols.append(code)\n",
+        "            indptrs.append(len(data))\n",
+        "        # Получаем BOW (мешок слов) для каждого текста \n",
+        "        answer = csr_matrix((data, cols, indptrs), shape=(len(texts), len(self.words_)))\n",
+        "        return answer"
+      ],
+      "execution_count": 7,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "iG0Azk7RYTlr",
+        "outputId": "75ddbde0-b536-4946-f9ac-9a1fb12089f7"
+      },
+      "source": [
+        "text_processor = TextProcessor().fit(processed_train_texts)\n",
+        "# Размерность представления одного документа\n",
+        "print(len(text_processor.words_))\n",
+        "X_train = text_processor.transform(processed_train_texts)\n",
+        "X_test = text_processor.transform(processed_test_texts)"
+      ],
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "35887\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BSfWDOVzbonE",
+        "outputId": "9760bcdb-ac69-4bbc-cbce-517554708adb"
+      },
+      "source": [
+        "# 3499304 / 25000 = 139.97216 элементов в среднем в векторе размером 35887\n",
+        "X_train"
+      ],
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<25000x35887 sparse matrix of type '<class 'numpy.int64'>'\n",
+              "\twith 3499304 stored elements in Compressed Sparse Row format>"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "N-AlJRbDhXvN"
+      },
+      "source": [
+        "Обучим классификатор. Для начала попробуем самый простой: наивный байесовский."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "wkjt0sdDhdxm"
+      },
+      "source": [
+        " from sklearn.naive_bayes import MultinomialNB\n",
+        " \n",
+        " # Подробности того, как происходит оценка вероятности слова при условии класса можно посмотреть здесь https://scikit-learn.org/stable/modules/naive_bayes.html#multinomial-naive-bayes\n",
+        " cls = MultinomialNB()\n",
+        " cls.fit(X_train, train_labels)\n",
+        " y_pred = cls.predict(X_test)"
+      ],
+      "execution_count": 10,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "q540jQGHjGHg",
+        "outputId": "8dcc276d-2f9a-4fbf-c4e5-29f80b356321"
+      },
+      "source": [
+        "set(y_pred)"
+      ],
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'neg', 'pos'}"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "MhCTF2HMiG6M"
+      },
+      "source": [
+        "from sklearn.metrics import accuracy_score, precision_recall_fscore_support\n",
+        "\n",
+        "def measure_quality(y_test, y_pred):\n",
+        "    # Если в датасете дисбаланс классов нельзя использовать корректность лучше использовать взвешенную корректность\n",
+        "    accuracy = accuracy_score(y_test, y_pred)\n",
+        "    print(\"Корректность: {:.2f}\".format(100 * accuracy))\n",
+        "    # В случае дисбаланса классов следует использовать варианты micro\\macro\\weighted\n",
+        "    precision, recall, f_score, _ = precision_recall_fscore_support(y_test, y_pred)\n",
+        "    print(\"Точность: {:.2f}(positive), {:.2f}(negative)\".format(*(100 * precision)))\n",
+        "    print(\"Полнота: {:.2f}(positive), {:.2f}(negative)\".format(*(100 * recall)))\n",
+        "    print(\"F1-мера: {:.2f}(positive), {:.2f}(negative)\".format(*(100 * f_score)))\n",
+        "    return {\"accuracy\": accuracy, \"precision\": precision, \"recall\": recall, \"F1\": f_score}"
+      ],
+      "execution_count": 12,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "8QRuOH7j2trk",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "5801b3ac-510e-4ddd-c079-025efca687fa"
+      },
+      "source": [
+        "metrics = measure_quality(test_labels, y_pred)\n",
+        "metrics"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Корректность: 81.11\n",
+            "Точность: 77.46(positive), 85.88(negative)\n",
+            "Полнота: 87.75(positive), 74.46(negative)\n",
+            "F1-мера: 82.28(positive), 79.76(negative)\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'F1': array([0.82284986, 0.79763486]),\n",
+              " 'accuracy': 0.81108,\n",
+              " 'precision': array([0.77459219, 0.85875081]),\n",
+              " 'recall': array([0.87752, 0.74464])}"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "pNz3EuTcj1QJ"
+      },
+      "source": [
+        " Обучим логистическую регрессию."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "eDOOmz6Tjxpc",
+        "outputId": "c56b5a30-4577-4fcd-fc19-4c9e0e6610cc"
+      },
+      "source": [
+        "from sklearn.linear_model import LogisticRegression\n",
+        " \n",
+        "#  https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression\n",
+        "cls = LogisticRegression()\n",
+        "cls.fit(X_train, train_labels)\n",
+        "y_pred = cls.predict(X_test)\n",
+        "metrics = measure_quality(test_labels, y_pred)"
+      ],
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Корректность: 86.64\n",
+            "Точность: 86.02(positive), 87.28(negative)\n",
+            "Полнота: 87.50(positive), 85.78(negative)\n",
+            "F1-мера: 86.75(positive), 86.52(negative)\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "stream",
+          "text": [
+            "/usr/local/lib/python3.7/dist-packages/sklearn/linear_model/_logistic.py:940: ConvergenceWarning: lbfgs failed to converge (status=1):\n",
+            "STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.\n",
+            "\n",
+            "Increase the number of iterations (max_iter) or scale the data as shown in:\n",
+            "    https://scikit-learn.org/stable/modules/preprocessing.html\n",
+            "Please also refer to the documentation for alternative solver options:\n",
+            "    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression\n",
+            "  extra_warning_msg=_LOGISTIC_SOLVER_CONVERGENCE_MSG)\n"
+          ],
+          "name": "stderr"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "id5F4QMIkHdi"
+      },
+      "source": [
+        "Логистическая регрессия привела к более высокому результату, поскольку она строит линейную разделяющую поверхность оптимальным образом, а не основываясь на не всегда корректном предположении о независимости признаков."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "qB9tNL-Lk_8P"
+      },
+      "source": [
+        "## Модификации обработки текста"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Xq6FdCx7lGFS"
+      },
+      "source": [
+        "Не всегда по отдельным словам можно судить о тональности текста, например, чтобы распознать отрицание, нужно рассматривать пару из двух слов (not bad = good). Попробуем добавить в модель биграммы. Поскольку их больше, чем униграмм, поставим отдельный порог по частоте."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "13WnJGeYkFJQ"
+      },
+      "source": [
+        "class NgramTextProcessor:\n",
+        "\n",
+        "    def __init__(self, min_count=3, min_ngram_count=10, max_ngram_length=2):\n",
+        "        self.min_count = min_count\n",
+        "        self.min_ngram_count = min_ngram_count\n",
+        "        self.max_ngram_length = max_ngram_length\n",
+        "\n",
+        "    def fit(self, texts):\n",
+        "        # счетчики для слов\n",
+        "        counts = defaultdict(int)\n",
+        "        # счетчики для n-gram\n",
+        "        ngram_counts = defaultdict(int)\n",
+        "        for text in texts:\n",
+        "            for word in set(text):\n",
+        "                counts[word] += 1\n",
+        "            text_ngrams = set()\n",
+        "            for ngram_length in range(2, self.max_ngram_length+1):\n",
+        "                for start in range(len(text) - ngram_length + 1):\n",
+        "                    # объединяем n-токенов в одну строку и добавляем в наш словарь\n",
+        "                    text_ngrams.add(\" \".join(text[start:start+ngram_length]))\n",
+        "            for ngram in text_ngrams:\n",
+        "                ngram_counts[ngram] += 1\n",
+        "        self.words_ = [word for word, count in counts.items() if count >= self.min_count]\n",
+        "        self.words_ += [ngram for ngram, count in ngram_counts.items() if count >= self.min_ngram_count]\n",
+        "        self.word_codes_ = {word: i for i, word in enumerate(self.words_)}\n",
+        "        return self\n",
+        "\n",
+        "    def transform(self, texts):\n",
+        "        # cols - номера столбцов, содержащих \n",
+        "        # indptrs - позиции начала строк матрицы в списке ненулевых элементов\n",
+        "        indptrs, data, cols = [0], [], []\n",
+        "        for i, text in enumerate(texts):\n",
+        "            word_counts = Counter(text)\n",
+        "            for word, count in word_counts.items():\n",
+        "                code = self.word_codes_.get(word)\n",
+        "                if code is not None:\n",
+        "                    data.append(count)\n",
+        "                    cols.append(code)\n",
+        "            text_ngrams = defaultdict(int)\n",
+        "            for ngram_length in range(2, self.max_ngram_length+1):\n",
+        "                for start in range(len(text) - ngram_length + 1):\n",
+        "                    ngram = \" \".join(text[start:start+ngram_length])\n",
+        "                    text_ngrams[ngram] += 1\n",
+        "            for ngram, count in text_ngrams.items():\n",
+        "                code = self.word_codes_.get(ngram)\n",
+        "                if code is not None:\n",
+        "                    data.append(count)\n",
+        "                    cols.append(code)\n",
+        "            indptrs.append(len(data))\n",
+        "        answer = csr_matrix((data, cols, indptrs), shape=(len(texts), len(self.words_)))\n",
+        "        return answer"
+      ],
+      "execution_count": 14,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jWVfbX75lnd8",
+        "outputId": "501d82f0-27d1-4e60-8de2-12a4b1409723"
+      },
+      "source": [
+        "ngram_processor = NgramTextProcessor().fit(processed_train_texts)\n",
+        "# биграммы значительно увеличили размер вектора признаков\n",
+        "print(len(ngram_processor.words_))\n",
+        "X_train = ngram_processor.transform(processed_train_texts)\n",
+        "X_test = ngram_processor.transform(processed_test_texts)"
+      ],
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "100334\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "81YLIj87oT2a",
+        "outputId": "97ecda79-030e-4e1d-ae87-02bfcf730b1a"
+      },
+      "source": [
+        "cls = LogisticRegression()\n",
+        "cls.fit(X_train, train_labels)\n",
+        "y_pred = cls.predict(X_test)\n",
+        "metrics = measure_quality(test_labels, y_pred)"
+      ],
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Корректность: 89.22\n",
+            "Точность: 89.19(positive), 89.26(negative)\n",
+            "Полнота: 89.26(positive), 89.18(negative)\n",
+            "F1-мера: 89.23(positive), 89.22(negative)\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "stream",
+          "text": [
+            "/usr/local/lib/python3.7/dist-packages/sklearn/linear_model/_logistic.py:940: ConvergenceWarning: lbfgs failed to converge (status=1):\n",
+            "STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.\n",
+            "\n",
+            "Increase the number of iterations (max_iter) or scale the data as shown in:\n",
+            "    https://scikit-learn.org/stable/modules/preprocessing.html\n",
+            "Please also refer to the documentation for alternative solver options:\n",
+            "    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression\n",
+            "  extra_warning_msg=_LOGISTIC_SOLVER_CONVERGENCE_MSG)\n"
+          ],
+          "name": "stderr"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "oE_PVEjNpk5p"
+      },
+      "source": [
+        "## Приведение к начальной форме"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "peMYacjIpnWI"
+      },
+      "source": [
+        "Для того, чтобы понять, отрицательную или положительную окраску несёт слово, неважно, стоит оно в единственном или множественном числе. Поэтому будем использовать в качестве элементов словаря не сами слова, а их начальные формы (леммы). \n",
+        "\n",
+        "Для лемматизации воспользуемся библиотекой spacy. Поскольку лемматизация зависит от контекста, будем применять анализатор spacy к исходным предложениям."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Xwfpy8lkpCdS"
+      },
+      "source": [
+        "import spacy\n",
+        "# локально надо было бы загрузить модель en_core_web_sm\n",
+        "spacy_processor = spacy.load(\"en_core_web_sm\", disable=[\"parser\", \"ner\"])"
+      ],
+      "execution_count": 17,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "srlDy6ict5tg"
+      },
+      "source": [
+        "Интерфейс spacy ясен из примера:"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LxPcc05KuAnd",
+        "outputId": "248f34fb-87f4-4877-a115-3c62fca04fa0"
+      },
+      "source": [
+        "processed_text = spacy_processor(\"I thought it was raining yesterday.\")\n",
+        "# type(processed_text) = spacy.Doc\n",
+        "for i, word in enumerate(processed_text):\n",
+        "    # type(word) = spacy.Token\n",
+        "    print(i, word.text, word.lemma_)"
+      ],
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0 I -PRON-\n",
+            "1 thought think\n",
+            "2 it -PRON-\n",
+            "3 was be\n",
+            "4 raining rain\n",
+            "5 yesterday yesterday\n",
+            "6 . .\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "JzR2tw3Vu7Tx"
+      },
+      "source": [
+        "def process_text_with_spacy(texts, to_lemmatize=True, to_lower=True, only_alpha=True, remove_stopwords=False):\n",
+        "    if to_lemmatize:\n",
+        "        texts = list(spacy_processor.pipe(tqdm(texts)))\n",
+        "        texts = [[token.lemma_ if token.lemma_ != \"-PRON-\" else token.text.lower() for token in text] for text in texts]\n",
+        "    else:\n",
+        "        texts = [wordpunct_tokenize(text) for text in texts]\n",
+        "    return [process_text(text, to_lower=to_lower, only_alpha=only_alpha, remove_stopwords=remove_stopwords)\n",
+        "            for text in texts]"
+      ],
+      "execution_count": 19,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 116,
+          "referenced_widgets": [
+            "3977bcdf7ce445a99ac60a5a62feb1b1",
+            "e2a4f83cf5034585921fd5873ab9cde7",
+            "3111d550f45448418272ad92b88ec734",
+            "f210e614eeab4f29b745b534f5289b92",
+            "01635e18985f4ea383186649a1a5b9c6",
+            "4a6b07cf0b3c4a5388f166fe3bf7eaba",
+            "97c2f8c5c6bd45149e2780a266301015",
+            "0066433424af4911baae1767bab1cb22",
+            "3446204eafa64637aee79e2c209ae53e",
+            "28d2916a42214c82a69e0b2f3c754105",
+            "1b2127613b9c4659b53e53cd7c7211ea",
+            "136ef243071541c1b47cfb88721e746f",
+            "26eae854e714405993771f3f04a8f245",
+            "971c68fd915f4ac6bf7c13e698ce0fb1",
+            "86e3de33165f47e48de576c6ef430a87",
+            "c7881c744fa64be48cb54fd6119d0803"
+          ]
+        },
+        "id": "AxhwFm8Mvkqn",
+        "outputId": "d240216d-dd35-4c4a-be66-30f0f930ac44"
+      },
+      "source": [
+        "from tqdm.auto import tqdm\n",
+        "\n",
+        "processed_train_texts = process_text_with_spacy(train_texts)\n",
+        "processed_test_texts = process_text_with_spacy(test_texts)"
+      ],
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "application/vnd.jupyter.widget-view+json": {
+              "model_id": "3977bcdf7ce445a99ac60a5a62feb1b1",
+              "version_minor": 0,
+              "version_major": 2
+            },
+            "text/plain": [
+              "HBox(children=(FloatProgress(value=0.0, max=25000.0), HTML(value='')))"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          }
+        },
+        {
+          "output_type": "stream",
+          "text": [
+            "\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+            "application/vnd.jupyter.widget-view+json": {
+              "model_id": "3446204eafa64637aee79e2c209ae53e",
+              "version_minor": 0,
+              "version_major": 2
+            },
+            "text/plain": [
+              "HBox(children=(FloatProgress(value=0.0, max=25000.0), HTML(value='')))"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          }
+        },
+        {
+          "output_type": "stream",
+          "text": [
+            "\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sFXUoBqnwuJ2",
+        "outputId": "7260e38f-7309-4289-eb3b-0b1f1c90ce2f"
+      },
+      "source": [
+        "text_processor = TextProcessor().fit(processed_train_texts)\n",
+        "print(len(text_processor.words_))\n",
+        "X_train = text_processor.transform(processed_train_texts)\n",
+        "X_test = text_processor.transform(processed_test_texts)"
+      ],
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "28872\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pTUSnQzg2m18",
+        "outputId": "30e44f14-bd08-4aec-af31-f094fa060bac"
+      },
+      "source": [
+        "from sklearn.linear_model import LogisticRegression\n",
+        " \n",
+        "cls = LogisticRegression()\n",
+        "cls.fit(X_train, train_labels)\n",
+        "y_pred = cls.predict(X_test)\n",
+        "metrics = measure_quality(test_labels, y_pred)"
+      ],
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Корректность: 86.52\n",
+            "Точность: 86.12(positive), 86.93(negative)\n",
+            "Полнота: 87.07(positive), 85.97(negative)\n",
+            "F1-мера: 86.59(positive), 86.45(negative)\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "stream",
+          "text": [
+            "/usr/local/lib/python3.7/dist-packages/sklearn/linear_model/_logistic.py:940: ConvergenceWarning: lbfgs failed to converge (status=1):\n",
+            "STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.\n",
+            "\n",
+            "Increase the number of iterations (max_iter) or scale the data as shown in:\n",
+            "    https://scikit-learn.org/stable/modules/preprocessing.html\n",
+            "Please also refer to the documentation for alternative solver options:\n",
+            "    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression\n",
+            "  extra_warning_msg=_LOGISTIC_SOLVER_CONVERGENCE_MSG)\n"
+          ],
+          "name": "stderr"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "kBLq_zns294S"
+      },
+      "source": [
+        "Как видно, переход к леммам позволил снизить размерность данных, но при этом чуть-чуть улучшил качество базовой модели."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "n47yc9s5RJIe"
+      },
+      "source": [
+        "Можно стравниться с результатами безлайна оригинальной статьи 2011 https://ai.stanford.edu/~amaas/papers/wvSent_acl2011.pdf"
+      ]
+    }
+  ]
+}
